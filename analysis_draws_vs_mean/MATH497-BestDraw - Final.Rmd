@@ -116,9 +116,7 @@ aplot +
 
 KL Divergence, Sum of Absolute Value, and SSE of the CDFs (plots and dataframe)
 
-```{r, message = FALSE, warning = False}
-
-library(philentropy)
+```{r, message = FALSE, warning = FALSE}
 
 # pdf of the mean
 pM <- hist(dfRMNA$Mean, breaks = seq(0, max(dfRMNA$Mean), length.out = 100), plot = FALSE)$counts / nrow(dfRMNA)
@@ -264,7 +262,7 @@ ggplot(dfM, aes(x = value, y = Mean, colour = variable)) +
 
 Visualization of the PDFs
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE}
 library(sm)
 
 meltedDens <- melt(dfRMNA[c('X1st.Draw', 'X5th.Draw', 'Mean', 'X8th.Draw')])
@@ -283,7 +281,7 @@ ggplot(meltedDens, aes(x = value, fill = variable)) +
 
 Visualization of the CDFs
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE}
 
 p1 <- hist(dfRMNA$X1st.Draw, 
            breaks = seq(0, max(dfRMNA$X1st.Draw),
