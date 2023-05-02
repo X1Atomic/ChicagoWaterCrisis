@@ -1,9 +1,15 @@
-# plot the counts of lead level intervals by income 
+# this code provides a visualization of sequential lead levels grouped by income class 
+# produces a histogram of response count vs income class 
+# each histogram bar is also has stacked colored bars, representing lead intervals (high, medium, low)
+# for each bar, we also draw the: 
+# 1. Expected count by income class distribution in Chicago 
+# 2. Expected high lead level (>= 15ppb) by income class 
 
 import pandas as pd 
 import numpy as np
 import matplotlib.pyplot as plt 
 
+# read dataset 
 df = pd.read_csv('datasets/assessorSequential.csv')
 df.drop(columns=['Unnamed: 0'])
 
@@ -14,7 +20,6 @@ df['interval'] = ['ppb < 5' if (x < 5) else '5 <= ppb < 15' if (x < 15) else '15
 # specify colors and labels of stacked bars
 colors=['darkred', 'navy', 'seagreen']
 names=['ppb >= 15', '5 <= ppb < 15', 'ppb < 5']
-
 
 # -------------------#
 # Income 
@@ -32,7 +37,7 @@ n_extreme = len(df[df['avg']>=15].index)
 cross_tab_prop = pd.crosstab(index=df['Tract Median Income'], columns=df['interval'], normalize='index')
 cross_tab =  pd.crosstab(index=df['Tract Median Income'], columns=df['interval']) 
 
-# calculate expected counts
+# calculate the distribution of income in Chicago 
 incomes = np.linspace(10000, 180000, 18)
 counts_incomes = [1680, 27455, 66595, 112770, 85617, 74224, 59169, 55476, 37026, 56028, 25550, 32266, 24040, 7140, 3671, 6563, 872, 2514]
 total_counts_chicago = sum(counts_incomes)
@@ -62,7 +67,6 @@ plt.yticks(size = 8)
 plt.ylabel('Frequency')
 plt.xlabel('Median Income')
 plt.legend(labels=names, fontsize=20)
-# plt.legend(fontsize = 15)
 plt.show() 
 
 
