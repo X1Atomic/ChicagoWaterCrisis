@@ -4,6 +4,11 @@
 
 *Fighting Lead in Water One Pb at a Time* 
 
+| Kaylee Rosendahl (Project Lead) | Applied Mathematics, Computer Science 2024 | 
+| ------ | ----- | 
+| Kristin Fesmire | Applied Mathematics 2023 | 
+| Aakash Madabushi | AI 2023 | 
+| Jacob Thomas | Applied Mathematics, Physics 2025|
 
 Since the Flint, MI water crisis, awareness of lead levels in water and other daily-use substances is dramatically increasing. As it relates to Chicago, only a few policies and studies have been done of the thousands of data points on lead levels collected within the city. With the US Environmental Protection Agency’s [Lead & Copper Rule](https://www.epa.gov/dwreginfo/lead-and-copper-rule) (LCR), testing was thoroughly underway, but questions regarding the inferences from the collected data arose, and the [LCR Revision](https://sgp.fas.org/crs/misc/R46794.pdf) (LCRR) was released to take effect in late 2024.
 
