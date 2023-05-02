@@ -1,3 +1,5 @@
+# exploratory visualization: plots the sequential data by location, colored by income class
+
 import geopandas
 import pandas as pd 
 import matplotlib.pyplot as plt
