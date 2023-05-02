@@ -77,8 +77,6 @@ one_side_low = []
 for ppb in thresholds:  
   one_side_low.append(one_side_test_low(ppb,df))
 
-# print(one_side_low)
-
 # plot of thresholds and statistical significance 
 plt.scatter(thresholds, one_side_low, s=13)
 plt.title('One-Sided Test Statistic: Irwin-Hall Distribution')
