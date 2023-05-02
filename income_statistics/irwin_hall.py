@@ -1,9 +1,9 @@
 # this code runs a one-sided hypothesis test using the Irwin-Hall distribution 
-# Irwin-Hall: sum of n variables X ~i.i.d. U(0,1)
+# Irwin-Hall: sum of m variables X ~i.i.d. U(0,1)
 # take X to be the quantile of income 
 # H_0: there is no relationship between average lead levels and income. 
 # H_A: there is a relationship between average lead levels and income. 
-# for some ppb threshold k, take x_hat = sum of income quantiles of data points whose average exceeds k ppb 
+# for some ppb threshold k, take x_hat = sum of income quantiles of data points whose average exceeds k ppb (n points)
 # calculate P(X <= x_hat) for significance 
 
 import numpy as np
@@ -45,11 +45,11 @@ def one_side_test_low(ppb_threshold, df):
     # n = number of points of interest 
     # x = sum of quantiles of points of interest
     n = len(df_above_thresh.index)
-    x = sum(df_above_thresh['quantile'])
+    x_hat = sum(df_above_thresh['quantile'])
     print(ppb_threshold, n)
 
     # return test statistic 
-    return IrwinHallCDF(n=n, x=x, approx="Normal")
+    return IrwinHallCDF(n=n, x=x_hat, approx="Normal")
 
 # read dataset 
 df = pd.read_csv('datasets/assessorSequential.csv')
@@ -60,7 +60,7 @@ df = df[df['Tract Median Income'].notna()]
 # calculate average ppb 
 df['avg'] = df.filter(like='Draw').apply(lambda x: x.mean(), axis=1)
 
-# nQuantiles = total data points 
+# nQuantiles = total data points (m)
 nQuantiles = len(df.index)
 
 df = df[['Tract Median Income', 'avg']]
