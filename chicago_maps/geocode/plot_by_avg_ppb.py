@@ -21,7 +21,7 @@ random.seed(1827)
 # read dataframe 
 df = pd.read_csv('.\datasets\AssessorSequential.csv')
 
-# calculate average and lead interval 
+# calculate average and lead interval label 
 df['avg'] = df[["X1st.Draw","X2nd.Draw","X3rd.Draw","X4th.Draw","X5th.Draw","X6th.Draw","X7th.Draw","X8th.Draw","X9th.Draw","X10th.Draw","X11th.Draw"]].mean(axis=1)
 df['ppb_label'] = df.apply(lambda row: color_by_val(row), axis=1)
 
