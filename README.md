@@ -1,6 +1,6 @@
 # The Lead Crisis in Chicago 
 ## Math 497, Spring 2023
-### Team Peanut Butter Hunters 
+### Peanut Butter Hunters 
 
 *Fighting Lead in Water One Pb at a Time* 
 
