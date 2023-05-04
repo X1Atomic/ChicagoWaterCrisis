@@ -176,3 +176,22 @@ five = results['5 Minute'].values
 result = kstwo(twothree, five)
 print("KS test statistic:", result['ks_stat'])
 print("p-value:", result['p_value'])
+
+def kstwo(sample1, sample2):
+    sample1.sort()
+    sample2.sort()
+    D_ks = []
+    for x in sample1:
+        cdf1 = sum(sample1 <= x) / len(sample1)
+        cdf2 = sum(sample2 <= x) / len(sample2)
+        D_ks.append(abs(cdf1 - cdf2))
+    ks_stat = max(D_ks)
+    p_value = stats.ks_2samp(sample1, sample2).pvalue
+    return {"ks_stat": ks_stat, "p_value" : p_value}
+
+twothree = results['3 Minute'].values
+fifth = results['5th Draw'].values
+
+result = kstwo(twothree, fifth)
+print("KS test statistic:", result['ks_stat'])
+print("p-value:", result['p_value'])
